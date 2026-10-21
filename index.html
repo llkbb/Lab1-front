@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Веселий веб-портал для навчання дітей через ігри та творчість">
+  <title>Маленькі відкриття | Навчання дітей</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Маленькі відкриття - головна сторінка">
+      <span class="brand-mark">✦</span>
+      <span><strong>Маленькі</strong><em> відкриття</em></span>
+    </a>
+    <nav aria-label="Головна навігація">
+      <a href="index.html" class="active">Головна</a>
+      <a href="courses.html">Навчальні матеріали</a>
+      <a href="feedback.html">Зворотний зв'язок</a>
+    </nav>
+    <div class="header-actions">
+      <a class="button button-ghost" href="#about">Про портал</a>
+      <a class="button button-primary" href="feedback.html">Приєднатися</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="about">
+      <div class="hero-copy">
+        <p class="eyebrow">Освітній простір для допитливих</p>
+        <h1>Навчання, яке хочеться <span>продовжувати.</span></h1>
+        <p class="hero-text">Ігри, експерименти та маленькі перемоги допомагають дітям пізнавати світ у власному темпі.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="courses.html">Переглянути курси <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="#topics">До тем навчання <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="trust-note"><span class="dot"></span> Безпечний простір для дітей 6–12 років</p>
+      </div>
+      <figure class="hero-figure">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=85" alt="Дитина навчається за столом з яскравими матеріалами">
+        <figcaption><strong>+2 400</strong><span>маленьких дослідників уже навчаються з нами</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="intro-section" id="mission">
+      <article class="intro-copy">
+        <p class="eyebrow">Наша мета</p>
+        <h2>Допомогти дитині сказати: «Я можу».</h2>
+        <p>«Маленькі відкриття» поєднують навчання та гру, щоб складні поняття ставали зрозумілими через практику, рух і цікаві історії.</p>
+        <p class="styled-sentence"><span>Кожен урок — це </span><i>цікава пригода</i>, <b>новий крок</b>, <em>сміливе питання</em> та <u>власне відкриття</u>.</p>
+      </article>
+      <aside class="mission-card" aria-label="Наші завдання">
+        <p class="card-label">Наші завдання</p>
+        <ol type="I">
+          <li>Розвивати допитливість і критичне мислення.</li>
+          <li>Підтримувати інтерес до самостійного навчання.</li>
+          <li>Показувати, що помилки є частиною успіху.</li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="topics-section" id="topics">
+      <div class="section-heading">
+        <div><p class="eyebrow">Навчальна мапа</p><h2>Що вивчаємо</h2></div>
+        <a class="text-link" href="courses.html">Усі матеріали <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <caption>Навчальні теми порталу «Маленькі відкриття»</caption>
+          <thead>
+            <tr><th rowspan="2">Напрям</th><th colspan="2">Формат занять</th><th rowspan="2">Вік</th><th rowspan="2">Результат</th></tr>
+            <tr><th>Наодинці</th><th>Разом</th></tr>
+          </thead>
+          <tbody>
+            <tr><th rowspan="2" scope="rowgroup">Дослідження</th><td>Відеоексперимент</td><td>Мінілабораторія</td><td rowspan="2">6–9</td><td>Спостережливість</td></tr>
+            <tr><td>Квест «Вода»</td><td>Групова гра</td><td>Вміння робити висновки</td></tr>
+            <tr><th rowspan="2" scope="rowgroup">Творчість</th><td>Малювання</td><td>Майстерня</td><td rowspan="2">8–12</td><td>Уява</td></tr>
+            <tr><td>Музична історія</td><td>Командний проєкт</td><td>Самовираження</td></tr>
+            <tr><th scope="row">Логіка</th><td colspan="2">Головоломки та задачі</td><td>9–12</td><td>Послідовне мислення</td></tr>
+          </tbody>
+          <tfoot><tr><th colspan="4">Разом напрямів</th><td>3</td></tr></tfoot>
+        </table>
+      </div>
+    </section>
+
+    <section class="resources-section">
+      <article class="resource-card coral-card">
+        <p class="eyebrow">Для батьків</p><h2>Підтримуйте цікавість щодня</h2>
+        <p>Короткі підказки про навчання без тиску та зайвих оцінок.</p>
+        <a class="text-link" href="https://www.unicef.org/parenting" target="_blank" rel="noopener">Поради UNICEF <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="resource-card mint-card">
+        <p class="eyebrow">Для дітей</p><h2>Готові до першого квесту?</h2>
+        <p>Обирайте тему, яка захоплює саме сьогодні.</p>
+        <a class="text-link" href="https://kids.nationalgeographic.com/" target="_blank" rel="noopener">Дослідити світ <span aria-hidden="true">↗</span></a>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contacts">
+    <div><a class="brand" href="index.html"><span class="brand-mark">✦</span><span><strong>Маленькі</strong><em> відкриття</em></span></a><p>Вчимося граючи, відкриваємо разом.</p></div>
+    <div><p class="footer-label">Контакти</p><p>м. Київ, вул. Хрещатик, 1<br><a href="tel:+380441234567">+38 (044) 123-45-67</a><br><a href="mailto:hello@knu.ua">hello@knu.ua</a></p></div>
+    <div><p class="footer-label">Навігація</p><p><a href="courses.html">Курси</a><br><a href="feedback.html">Зворотний зв'язок</a></p></div>
+  </footer>
+</body>
+</html>
