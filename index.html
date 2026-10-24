@@ -6,9 +6,14 @@
   <meta name="description" content="Веселий веб-портал для навчання дітей через ігри та творчість">
   <title>Маленькі відкриття | Навчання дітей</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .home-header .brand-mark {
+      outline: 2px solid hsl(160 25% 60%);
+    }
+  </style>
 </head>
-<body>
-  <header class="site-header">
+<body class="home-page">
+  <header class="site-header home-header">
     <a class="brand" href="index.html" aria-label="Маленькі відкриття - головна сторінка">
       <span class="brand-mark">✦</span>
       <span><strong>Маленькі</strong><em> відкриття</em></span>
@@ -42,7 +47,7 @@
       </figure>
     </section>
 
-    <section class="intro-section" id="mission">
+    <section class="intro-section home-intro" id="mission">
       <article class="intro-copy">
         <p class="eyebrow">Наша мета</p>
         <h2>Допомогти дитині сказати: «Я можу».</h2>
@@ -99,7 +104,7 @@
 
   <footer class="site-footer" id="contacts">
     <div><a class="brand" href="index.html"><span class="brand-mark">✦</span><span><strong>Маленькі</strong><em> відкриття</em></span></a><p>Вчимося граючи, відкриваємо разом.</p></div>
-    <div><p class="footer-label">Контакти</p><p>м. Київ, вул. Хрещатик, 1<br><a href="tel:+380441234567">+38 (044) 123-45-67</a><br><a href="mailto:hello@knu.ua">hello@knu.ua</a></p></div>
+    <div class="contact-block" tabindex="0"><p class="footer-label">Контакти</p><p>м. Київ, вул. Хрещатик, 1<br><a href="tel:+380441234567">+38 (044) 123-45-67</a><br><a href="mailto:hello@knu.ua">hello@knu.ua</a></p></div>
     <div><p class="footer-label">Навігація</p><p><a href="courses.html">Курси</a><br><a href="feedback.html">Зворотний зв'язок</a></p></div>
   </footer>
 </body>

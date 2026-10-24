@@ -61,7 +61,7 @@ a {
   width: 34px;
   height: 34px;
   color: var(--ink);
-  background: var(--yellow);
+  background: hsl(46 88% 66%);
   border-radius: 50%;
   font-size: 22px;
 }
@@ -107,7 +107,7 @@ nav a.active {
   box-shadow: 0 7px 18px rgba(32, 52, 59, 0.12);
 }
 .button-primary {
-  color: #fff;
+  color: rgb(255, 255, 255);
   background: var(--ink);
 }
 .button-ghost {
@@ -115,8 +115,16 @@ nav a.active {
   background: transparent;
 }
 .button-dark {
-  color: #fff;
+  color: white;
   background: var(--ink);
+}
+@keyframes saturation-pulse {
+  0% {
+    filter: saturate(1);
+  }
+  100% {
+    filter: saturate(1.5);
+  }
 }
 main {
   max-width: 1240px;
@@ -272,6 +280,50 @@ main {
 .topics-section {
   padding: 70px 0 95px;
 }
+.home-page .site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
+.home-page .intro-copy {
+  margin: 56px 30px 24px;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.home-page .intro-copy::before {
+  content: "🧭";
+  display: block;
+  margin-bottom: 12px;
+  font-size: 26px;
+}
+.home-page .intro-copy > p:nth-of-type(2)::first-letter {
+  color: #236b4d;
+  text-shadow: 2px 2px 0 rgba(35, 107, 77, 0.2);
+  font-size: 1.35em;
+}
+.home-page .table-wrap {
+  transition: transform 0.3s ease;
+}
+.home-page .table-wrap:hover {
+  transform: translateX(2vw);
+}
+.home-page .contact-block {
+  transition: box-shadow 0s 2s;
+}
+.home-page .contact-block:focus {
+  outline: 2px solid var(--ink);
+  box-shadow: 0 0 0 8px rgba(32, 52, 59, 0.16);
+}
+.home-page .hero-text {
+  float: left;
+  width: 100%;
+}
+.home-page .hero-actions {
+  clear: both;
+}
 .section-heading {
   display: flex;
   justify-content: space-between;
@@ -390,10 +442,39 @@ tfoot td {
   border: 1px solid var(--line);
   border-radius: var(--radius);
 }
+.courses-page .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
+.courses-page .page-main {
+  padding-top: 145px;
+}
+.courses-page .course-card {
+  border: 1px solid #4b2b59;
+  border-left: 2px dotted #4b2b59;
+  border-right: 1px solid #4b2b59;
+}
+.courses-page .course-content h2 {
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 700;
+}
 .course-card img {
   width: 100%;
   height: 230px;
   object-fit: cover;
+  transition: filter 0.3s ease;
+}
+.courses-page .course-card img:hover {
+  animation: saturation-pulse 0.8s ease-in-out forwards;
+  filter: saturate(1.5);
+}
+.courses-page nav a:visited,
+.courses-page .back-button:visited {
+  color: #8b1e3f;
 }
 .course-content {
   padding: 25px;
@@ -421,12 +502,34 @@ tfoot td {
   max-width: 950px;
 }
 .feedback-form {
-  display: grid;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
   gap: 23px;
   padding: 36px;
   background: var(--cream);
   border: 1px solid var(--line);
   border-radius: var(--radius);
+}
+.feedback-form > fieldset {
+  order: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  align-self: stretch;
+}
+.feedback-form > label {
+  order: 2;
+  flex: 1 1 100%;
+}
+.feedback-form > .consent {
+  order: 3;
+  align-self: flex-start;
+}
+.feedback-form > .form-actions {
+  order: 4;
+  align-self: stretch;
 }
 .feedback-form fieldset {
   margin: 0;
@@ -441,9 +544,16 @@ tfoot td {
     serif;
 }
 .form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: flex-start;
   gap: 20px;
+}
+.form-grid > label {
+  flex: 1 1 280px;
+  align-self: stretch;
 }
 .feedback-form label {
   display: grid;
@@ -495,6 +605,10 @@ tfoot td {
 }
 .form-actions {
   display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
   gap: 12px;
   padding-top: 5px;
 }
