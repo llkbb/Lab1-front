@@ -324,16 +324,19 @@ if (typeof module !== "undefined" && module.exports) {
 }
 
 const initializeLab4Interactions = () => {
-  const accordionToggle = document.querySelector(".accordion-toggle");
-  const accordionContent = document.querySelector(".accordion-content");
+  const accordionToggle = document.querySelectorAll(".accordion-toggle");
 
-  if (accordionToggle && accordionContent) {
-    accordionToggle.addEventListener("click", () => {
-      const isExpanded = accordionToggle.getAttribute("aria-expanded") === "true";
-      accordionToggle.setAttribute("aria-expanded", String(!isExpanded));
-      accordionContent.hidden = isExpanded;
+  accordionToggle.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const content = document.getElementById(toggle.getAttribute("aria-controls"));
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+
+      toggle.setAttribute("aria-expanded", String(!isExpanded));
+      if (content) {
+        content.hidden = isExpanded;
+      }
     });
-  }
+  });
 
   const detailsField = document.querySelector(".details-field");
   if (detailsField) {

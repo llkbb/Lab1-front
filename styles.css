@@ -17,6 +17,7 @@
 }
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body {
   margin: 0;
@@ -24,6 +25,7 @@ body {
   background: var(--paper);
   font-family: "DM Sans", sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 a {
   color: inherit;
@@ -693,6 +695,106 @@ tfoot td {
   .details-field:hover .field-tooltip, .details-field.tooltip-visible .field-tooltip { opacity: 1; transform: translateX(0); }
   body { transition: filter 0.4s ease; }
   body.daylight-mode { filter: brightness(1.4); }
+
+  img {
+    max-width: 100%;
+  }
+
+  .hero-figure img,
+  .course-card img {
+    display: block;
+    height: auto;
+  }
+
+  @media (max-width: 700px) {
+    .site-header {
+      align-items: flex-start;
+    }
+
+    @media (max-width: 850px) {
+      .field-tooltip {
+        left: 0;
+        bottom: -62px;
+      }
+    }
+
+    .site-header nav {
+      gap: 16px;
+      justify-content: flex-start;
+      padding-bottom: 2px;
+    }
+
+    .site-header nav a {
+      white-space: nowrap;
+    }
+
+    .header-actions {
+      width: 100%;
+    }
+
+    .header-actions .button {
+      flex: 1;
+    }
+
+    .author-section {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .author-flip-card {
+      width: min(100%, 280px);
+      margin: 0 auto;
+    }
+
+    .field-tooltip {
+      left: 0;
+      bottom: -62px;
+      width: min(260px, 100%);
+    }
+  }
+
+  @media (max-width: 420px) {
+    main {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .site-header {
+      gap: 12px;
+    }
+
+    .brand {
+      font-size: 16px;
+    }
+
+    nav {
+      font-size: 13px;
+    }
+
+    .hero h1,
+    .page-intro h1 {
+      font-size: clamp(36px, 12vw, 48px);
+    }
+
+    .button {
+      padding-inline: 14px;
+    }
+
+    .feedback-form {
+      padding: 14px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 
   /* Lab 4 interactive elements */
   .hero {
