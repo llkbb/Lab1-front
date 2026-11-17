@@ -144,6 +144,8 @@ const lab3 = (() => {
         Number.isFinite(course.minutes)
     );
 
+
+
   const addCourse = (items, course) => {
     const newCourse = {
       ...course,
@@ -319,4 +321,48 @@ const lab3 = (() => {
 
 if (typeof module !== "undefined" && module.exports) {
   module.exports = lab3;
+}
+
+const initializeLab4Interactions = () => {
+  const accordionToggle = document.querySelector(".accordion-toggle");
+  const accordionContent = document.querySelector(".accordion-content");
+
+  if (accordionToggle && accordionContent) {
+    accordionToggle.addEventListener("click", () => {
+      const isExpanded = accordionToggle.getAttribute("aria-expanded") === "true";
+      accordionToggle.setAttribute("aria-expanded", String(!isExpanded));
+      accordionContent.hidden = isExpanded;
+    });
+  }
+
+  const detailsField = document.querySelector(".details-field");
+  if (detailsField) {
+    const textarea = detailsField.querySelector("textarea");
+    textarea.addEventListener("mouseenter", () => {
+      detailsField.classList.add("tooltip-visible");
+    });
+    textarea.addEventListener("mouseleave", () => {
+      detailsField.classList.remove("tooltip-visible");
+    });
+  }
+
+  const authorFlipCard = document.querySelector(".author-flip-card");
+  if (authorFlipCard) {
+    authorFlipCard.addEventListener("focus", () => {
+      authorFlipCard.classList.add("is-flipped");
+    });
+    authorFlipCard.addEventListener("blur", () => {
+      authorFlipCard.classList.remove("is-flipped");
+    });
+  }
+
+  const currentHour = new Date().getHours();
+  document.body.classList.toggle(
+    "daylight-mode",
+    currentHour >= 6 && currentHour < 21
+  );
+};
+
+if (typeof document !== "undefined") {
+  document.addEventListener("DOMContentLoaded", initializeLab4Interactions);
 }

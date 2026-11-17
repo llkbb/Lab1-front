@@ -11,6 +11,7 @@
   --line: #d9ddd8;
   --radius: 20px;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -652,6 +653,240 @@ tfoot td {
   .site-header {
     padding: 14px 20px;
   }
+
+  .hero { position: relative; overflow: hidden; }
+  .falling-toys-layer { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+  .falling-toy { position: absolute; top: -4rem; font-size: clamp(2.4rem, 4vw, 4rem); animation: falling-toy 8s linear infinite; }
+  .toy-ball { left: 8%; animation-delay: -1s; }
+  .toy-block { left: 28%; animation-delay: -5s; }
+  .toy-puzzle { left: 51%; animation-delay: -3s; }
+  .toy-robot { left: 73%; animation-delay: -7s; }
+  .toy-teddy { left: 90%; animation-delay: -2s; }
+  .hero-copy, .hero-figure { position: relative; z-index: 1; }
+  @keyframes falling-toy {
+    0% { transform: translateY(-5rem) rotate(0deg); opacity: 0; }
+    12% { opacity: 0.9; }
+    88% { opacity: 0.9; }
+    100% { transform: translateY(36rem) rotate(360deg); opacity: 0; }
+  }
+  .author-section { max-width: 1120px; margin: 0 auto; padding: 20px clamp(20px, 5vw, 76px) 76px; display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: center; }
+  .author-flip-card { height: 330px; perspective: 1000px; outline: none; }
+  .author-flip-inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.7s ease; }
+  .author-flip-card:hover .author-flip-inner, .author-flip-card:focus .author-flip-inner, .author-flip-card:focus-within .author-flip-inner, .author-flip-card.is-flipped .author-flip-inner { transform: rotateY(180deg); }
+  .author-card-face { position: absolute; inset: 0; backface-visibility: hidden; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--cream); box-shadow: 0 16px 35px rgb(32 52 59 / 12%); }
+  .author-card-front { display: flex; flex-direction: column; }
+  .author-card-front img { width: 100%; height: 210px; object-fit: cover; }
+  .author-card-front strong, .author-card-front span { padding: 0 18px; }
+  .author-card-front strong { margin-top: 12px; }
+  .author-card-front span { color: var(--muted); font-size: 13px; }
+  .author-card-back { display: grid; place-content: center; padding: 28px; transform: rotateY(180deg); background: var(--mint); }
+  .author-card-back blockquote { margin: 8px 0 0; font-family: "Fraunces", serif; font-size: 22px; }
+  .course-accordion { width: min(460px, 100%); margin-bottom: 32px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--cream); box-shadow: 0 12px 28px rgb(32 52 59 / 8%); }
+  .accordion-toggle { width: 100%; padding: 16px 20px; display: flex; justify-content: space-between; border: 0; color: var(--ink); background: transparent; font: inherit; font-weight: 700; cursor: pointer; text-align: left; }
+  .accordion-icon { font-size: 24px; line-height: 1; transition: transform 0.2s ease; }
+  .accordion-toggle[aria-expanded="true"] .accordion-icon { transform: rotate(45deg); }
+  .accordion-content { padding: 0 20px 16px; color: var(--muted); }
+  .accordion-content p { margin: 0; }
+  .details-field { position: relative; }
+  .field-tooltip { position: absolute; left: calc(100% + 16px); bottom: 12px; width: 260px; padding: 12px 14px; border: 1px solid var(--coral); border-radius: 12px; color: var(--ink); background: var(--cream); box-shadow: 0 10px 24px rgb(32 52 59 / 18%); font-size: 13px; opacity: 0; pointer-events: none; transform: translateX(-8px); transition: opacity 0.2s ease, transform 0.2s ease; }
+  .details-field:hover textarea, .details-field.tooltip-visible textarea { border-color: var(--coral); background: #fff0e8; box-shadow: 0 0 0 4px rgb(242 139 115 / 20%); }
+  .details-field:hover .field-tooltip, .details-field.tooltip-visible .field-tooltip { opacity: 1; transform: translateX(0); }
+  body { transition: filter 0.4s ease; }
+  body.daylight-mode { filter: brightness(1.4); }
+
+  /* Lab 4 interactive elements */
+  .hero {
+    position: relative;
+    overflow: hidden;
+  }
+  .falling-toys-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .falling-toy {
+    position: absolute;
+    top: -4rem;
+    font-size: clamp(2.4rem, 4vw, 4rem);
+    animation: falling-toy 8s linear infinite;
+  }
+  .toy-ball { left: 8%; animation-delay: -1s; }
+  .toy-block { left: 28%; animation-delay: -5s; }
+  .toy-puzzle { left: 51%; animation-delay: -3s; }
+  .toy-robot { left: 73%; animation-delay: -7s; }
+  .toy-teddy { left: 90%; animation-delay: -2s; }
+  .hero-copy,
+  .hero-figure {
+    position: relative;
+    z-index: 1;
+  }
+  @keyframes falling-toy {
+    0% { transform: translateY(-5rem) rotate(0deg); opacity: 0; }
+    12% { opacity: 0.9; }
+    88% { opacity: 0.9; }
+    100% { transform: translateY(36rem) rotate(360deg); opacity: 0; }
+  }
+
+  .author-section {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 20px clamp(20px, 5vw, 76px) 76px;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 48px;
+    align-items: center;
+  }
+  .author-flip-card {
+    height: 330px;
+    perspective: 1000px;
+    outline: none;
+  }
+  .author-flip-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease;
+  }
+  .author-flip-card:hover .author-flip-inner,
+  .author-flip-card:focus .author-flip-inner,
+  .author-flip-card:focus-within .author-flip-inner {
+    transform: rotateY(180deg);
+  }
+  .author-card-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--cream);
+    box-shadow: 0 16px 35px rgb(32 52 59 / 12%);
+  }
+  .author-card-front {
+    display: flex;
+    flex-direction: column;
+  }
+  .author-card-front img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+  }
+  .author-card-front strong,
+  .author-card-front span {
+    padding: 0 18px;
+  }
+  .author-card-front strong {
+    margin-top: 12px;
+  }
+  .author-card-front span {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .author-card-back {
+    display: grid;
+    place-content: center;
+    padding: 28px;
+    transform: rotateY(180deg);
+    background: var(--mint);
+  }
+  .author-card-back blockquote {
+    margin: 8px 0 0;
+    font-family: "Fraunces", serif;
+    font-size: 22px;
+  }
+
+  .course-accordion {
+    width: min(460px, 100%);
+    margin-bottom: 32px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--cream);
+    box-shadow: 0 12px 28px rgb(32 52 59 / 8%);
+  }
+  .accordion-toggle {
+    width: 100%;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    border: 0;
+    color: var(--ink);
+    background: transparent;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: left;
+  }
+  .accordion-icon {
+    font-size: 24px;
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+  .accordion-toggle[aria-expanded="true"] .accordion-icon {
+    transform: rotate(45deg);
+  }
+  .accordion-content {
+    padding: 0 20px 16px;
+    color: var(--muted);
+  }
+  .accordion-content p {
+    margin: 0;
+  }
+
+  .details-field {
+    position: relative;
+  }
+  .field-tooltip {
+    position: absolute;
+    left: calc(100% + 16px);
+    bottom: 12px;
+    width: 260px;
+    padding: 12px 14px;
+    border: 1px solid var(--coral);
+    border-radius: 12px;
+    color: var(--ink);
+    background: var(--cream);
+    box-shadow: 0 10px 24px rgb(32 52 59 / 18%);
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .details-field:hover textarea,
+  .details-field.tooltip-visible textarea {
+    border-color: var(--coral);
+    background: #fff0e8;
+    box-shadow: 0 0 0 4px rgb(242 139 115 / 20%);
+  }
+  .details-field:hover .field-tooltip,
+  .details-field.tooltip-visible .field-tooltip {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  body {
+    transition: filter 0.4s ease;
+  }
+  body.daylight-mode {
+    filter: brightness(1.4);
+  }
+
+  @media (max-width: 700px) {
+    .author-section {
+      grid-template-columns: 1fr;
+    }
+    .author-flip-card {
+      max-width: 280px;
+    }
+    .field-tooltip {
+      left: 0;
+      bottom: -62px;
+      width: min(260px, 100%);
+    }
+  }
   .header-actions .button-ghost {
     display: none;
   }
@@ -688,3 +923,43 @@ tfoot td {
     flex-direction: column;
   }
 }
+
+.hero { position: relative; overflow: hidden; }
+.falling-toys-layer { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.falling-toy { position: absolute; top: -4rem; font-size: clamp(2.4rem, 4vw, 4rem); animation: falling-toy 8s linear infinite; }
+.toy-ball { left: 8%; animation-delay: -1s; }
+.toy-block { left: 28%; animation-delay: -5s; }
+.toy-puzzle { left: 51%; animation-delay: -3s; }
+.toy-robot { left: 73%; animation-delay: -7s; }
+.toy-teddy { left: 90%; animation-delay: -2s; }
+.hero-copy, .hero-figure { position: relative; z-index: 1; }
+@keyframes falling-toy {
+  0% { transform: translateY(-5rem) rotate(0deg); opacity: 0; }
+  12% { opacity: 0.9; }
+  88% { opacity: 0.9; }
+  100% { transform: translateY(36rem) rotate(360deg); opacity: 0; }
+}
+.author-section { max-width: 1120px; margin: 0 auto; padding: 20px clamp(20px, 5vw, 76px) 76px; display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: center; }
+.author-flip-card { height: 330px; perspective: 1000px; outline: none; }
+.author-flip-inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.7s ease; }
+.author-flip-card:hover .author-flip-inner, .author-flip-card:focus .author-flip-inner, .author-flip-card:focus-within .author-flip-inner, .author-flip-card.is-flipped .author-flip-inner { transform: rotateY(180deg); }
+.author-card-face { position: absolute; inset: 0; backface-visibility: hidden; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--cream); box-shadow: 0 16px 35px rgb(32 52 59 / 12%); }
+.author-card-front { display: flex; flex-direction: column; }
+.author-card-front img { width: 100%; height: 210px; object-fit: cover; }
+.author-card-front strong, .author-card-front span { padding: 0 18px; }
+.author-card-front strong { margin-top: 12px; }
+.author-card-front span { color: var(--muted); font-size: 13px; }
+.author-card-back { display: grid; place-content: center; padding: 28px; transform: rotateY(180deg); background: var(--mint); }
+.author-card-back blockquote { margin: 8px 0 0; font-family: "Fraunces", serif; font-size: 22px; }
+.course-accordion { width: min(460px, 100%); margin-bottom: 32px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--cream); box-shadow: 0 12px 28px rgb(32 52 59 / 8%); }
+.accordion-toggle { width: 100%; padding: 16px 20px; display: flex; justify-content: space-between; border: 0; color: var(--ink); background: transparent; font: inherit; font-weight: 700; cursor: pointer; text-align: left; }
+.accordion-icon { font-size: 24px; line-height: 1; transition: transform 0.2s ease; }
+.accordion-toggle[aria-expanded="true"] .accordion-icon { transform: rotate(45deg); }
+.accordion-content { padding: 0 20px 16px; color: var(--muted); }
+.accordion-content p { margin: 0; }
+.details-field { position: relative; }
+.field-tooltip { position: absolute; left: calc(100% + 16px); bottom: 12px; width: 260px; padding: 12px 14px; border: 1px solid var(--coral); border-radius: 12px; color: var(--ink); background: var(--cream); box-shadow: 0 10px 24px rgb(32 52 59 / 18%); font-size: 13px; opacity: 0; pointer-events: none; transform: translateX(-8px); transition: opacity 0.2s ease, transform 0.2s ease; }
+.details-field:hover textarea, .details-field.tooltip-visible textarea { border-color: var(--coral); background: #fff0e8; box-shadow: 0 0 0 4px rgb(242 139 115 / 20%); }
+.details-field:hover .field-tooltip, .details-field.tooltip-visible .field-tooltip { opacity: 1; transform: translateX(0); }
+body { transition: filter 0.4s ease; }
+body.daylight-mode { filter: brightness(1.4); }
